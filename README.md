@@ -28,3 +28,5 @@ The requirements for the execution of this project will be broken down into 5 di
 * The Pipeline built should be schedules to run at regualr intervals
 * Ability to monitor the status of pipeline excution.
 * We should be able to rerun failed pipelines and set up alerts on failures.
+## Full Solution Architecture for the entire project
+<img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/Files%20Overview.png">

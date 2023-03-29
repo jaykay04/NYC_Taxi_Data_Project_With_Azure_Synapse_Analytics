@@ -28,5 +28,21 @@ The requirements for the execution of this project will be broken down into 5 di
 * The Pipeline built should be schedules to run at regualr intervals
 * Ability to monitor the status of pipeline excution.
 * We should be able to rerun failed pipelines and set up alerts on failures.
-## Full Solution Architecture for the entire project
+## Full Solution Architecture of an Azure Synapse Analytics Workspace
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/Overall%20Solution%20Architecture.png">
+
+## Azure Services used for these project
+* 1. Azure DataLake Storage Gen2
+* 2. Azure Synpase Workspace
+* 3. Serverless SQL Pool
+* 4. Dedicated SQL Pool
+* 5. Spark Pool
+* 6. Synapse Link for Cosmos DB
+* 7. Cosmos DB
+* 8. Synapse Pipelines
+* 9. Power BI
+* 10. Azure Data Explorer
+* 11. Azure Data Studio.
+
+## Overview of the Datasets used and their formats
+<img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/Files%20Overview.png">

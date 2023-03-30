@@ -50,5 +50,10 @@ The requirements for the execution of this project will be broken down into 5 di
 ## Serverless SQL Implementation of the Project
 ### Solution Architecture Serverless SQL Pool
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/Slution%20Architecture-Serverless%20SQL%20Pool.png">
+Azure Serverless SQL Pool is serverless distributed query engine that can be used to query data over the the data lake using T-SQL.
+There is not infrastructure tp provision and clusters to administer.
 
+As regards the project requirements, the first task is to use serverless SQL Pool do dara discovery and exploration which includes the but not limited to the following
+* checking for duplicates
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/check_duplicates.png">
+*

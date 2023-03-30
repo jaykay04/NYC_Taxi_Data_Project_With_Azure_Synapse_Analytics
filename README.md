@@ -50,3 +50,5 @@ The requirements for the execution of this project will be broken down into 5 di
 ## Serverless SQL Implementation of the Project
 ### Solution Architecture Serverless SQL Pool
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/Slution%20Architecture-Serverless%20SQL%20Pool.png">
+
+<img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/check_duplicates.png">

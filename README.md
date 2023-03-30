@@ -25,7 +25,7 @@ The requirements for the execution of this project will be broken down into 5 di
 * This report should also be able to make data driven decisions as regards campaigns aimed at encouraging credit card payments as opposed cash payments.
 * Build capability for Operational reporting on the data from IOT devices in the taxis. This should be a Near Real time Analytics.
 #### 5. Scheduling Requirments
-* The Pipeline built should be schedules to run at regualr intervals
+* The Pipeline built should be scheduled to run at regualar intervals
 * Ability to monitor the status of pipeline excution.
 * We should be able to rerun failed pipelines and set up alerts on failures.
 ## Full Solution Architecture of an Azure Synapse Analytics Workspace

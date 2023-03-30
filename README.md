@@ -56,4 +56,8 @@ There is not infrastructure tp provision and clusters to administer.
 As regards the project requirements, the first task is to use serverless SQL Pool do dara discovery and exploration which includes the but not limited to the following
 * checking for duplicates
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/check_duplicates.png">
-*
+* data quality checks by checking for missing values, max, min, avg etc
+<img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/data_quality_checks.png">
+* perform joins on keys and also simple transformations to get business value from data
+<img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/join_datasets.png">
+<img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/simple_tranformation.png">

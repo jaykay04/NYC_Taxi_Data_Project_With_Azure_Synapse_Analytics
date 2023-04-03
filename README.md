@@ -86,3 +86,13 @@ To achieve this, we created *EXTERNAL TABLES* and *VIEWS* on top of the files in
 Now that we have external tables and views has been created in the bronze layer, the next step is to ingest the data from the bronze layer to the silver layer while also converting the CSV and JSON files into parquet so that analytical queries can run faster.
 The approach used to implement this is the *CETAS* (Create External Table As Select) as shown in below
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/cetas1.png">
+<img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/cetas2.png">
+
+One of the Limitation of the *CETAS* statement is that we can't write data directly into partitions.Data is only written into the one folder that was specified.
+Therefor, we implemented the use of *STORED PROCEDURES* to create seperate tables for each partition so that we can force each of the tables to be written in a seperate folder in the container as shown below.
+<img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/sp1.png">
+The Stored Procedures is then executed dynamically to give us partitioned data in the container.
+<img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/exec_sp.png">
+
+After we have achieved the goal of writing the data into partitions, we then created a view on top of the data in the silver layer.
+<img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/data_trip_green_view.png">

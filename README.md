@@ -99,4 +99,5 @@ After we have achieved the goal of writing the data into partitions, we then cre
 
 Note that the use of *STORED PROCEDURES* here to write the data into partitions is not the most effective approach.  Spark Pool is the best approach to impelement this as shown below.
 
-### Transform data from Silver layer into gold layer to meet business requirements
+### Transform data from Silver layer into gold/reporting layer to meet business requirements
+ 

@@ -66,8 +66,8 @@ The following data discovery and exploration was performed a shown below using t
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/join_datasets.png">
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/simple_tranformation.png">
 
-The challenges faced with the *OPENROWSET* functions include the follwoing;
-* We have to specify the storage account, file details and also file types anytime we use the *OPENROWSET* function.
+The challenges faced with the *OPENROWSET* functions include the following;
+* We have to specify the storage account, file details and also file formats anytime we use the *OPENROWSET* function.
 * The Columns names and data types has to be defined each time we query the data.
 * There is lots of code repetition
 * We can't query or connect the data using BI tools for reports 
@@ -76,4 +76,8 @@ To achieve this, we created *EXTERNAL TABLES* and *VIEWS* on top of the files in
 #### External tables in the bronze layer
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/external_table1.png">
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/external_table2.png">
+
+## Views created in the bronze layer
+<img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/views1.png">
+<img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/views2.png">
 

@@ -100,4 +100,21 @@ After we have achieved the goal of writing the data into partitions, we then cre
 Note that the use of *STORED PROCEDURES* here to write the data into partitions is not the most effective approach.  Spark Pool is the best approach to impelement this as shown below.
 
 ### Transform data from Silver layer into gold/reporting layer to meet business requirements
- 
+We have successfully moved data from the raw/bronze layer to the silver layer and also we created external tables and views for easy access for data analysts and scientists. 
+The next stage of the project involves transforming and aggregating the data into the gold/reporting layer to meet the business requirements.
+We have some couple of business requirements which are summarized below;
+#### 1. We want to be able to run campaigns to encourage credit card payments
+This can be achieved by
+* Tracking the number of trips making use of both card and cash payments
+* Knowing the payment behaviour during days of the week and also weekend
+* Monitoring the payment behaviour between borouhs
+We also have some couple of non functional requirements which includes;
+* Reporting data to be pre-aggregated for better performance
+* Pre-aggregate data for each year/month partition in isolation
+* Able to read data efficiently for specific months from aggregated data
+#### 2. We want ti identify the demands for taxis
+This can be achieved by knowing;
+* Demands based on borough
+* Demand based on day of week/weekend
+* Demand based on trip type (i.e Street hail/Dispatch)
+* Trip distance, trip durations, total fare amount etc per day/borough

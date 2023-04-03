@@ -53,7 +53,7 @@ The requirements for the execution of this project will be broken down into 5 di
 Azure Serverless SQL Pool is a serverless distributed query engine that can be used to query data over the the data lake using T-SQL.
 There is no infrastructure to provision and clusters to administer.
 
-As regards the project requirements, the first task is to use serverless SQL Pool to perform data discovery and exploration and this can be done using the *OPENROWSET* function in serverless sql pool.
+As regards the project requirements, the first task is to use serverless SQL Pool to perform data discovery and exploration and this can be done using the *OPENROWSET* function in serverless sql pool. 
 The *OPENROWSET* function allows us to be able to query the files directly from the storage as if it was a table.
 The following data discovery and exploration was performed a shown below using the *OPENROWSET* function.
 * checking for duplicates

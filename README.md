@@ -53,6 +53,7 @@ The requirements for the execution of this project will be broken down into 5 di
 Azure Serverless SQL Pool is a serverless distributed query engine that can be used to query data over the the data lake using T-SQL.
 There is no infrastructure to provision and clusters to administer.
 
+### Data Discovery in the raw/bronze layer
 As regards the project requirements, the first task is to use serverless SQL Pool to perform data discovery and exploration and this can be done using the *OPENROWSET* function in serverless sql pool.
 
 The *OPENROWSET* function allows us to be able to query the files directly from the storage as if it was a table.
@@ -81,3 +82,4 @@ To achieve this, we created *EXTERNAL TABLES* and *VIEWS* on top of the files in
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/views1.png">
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/views2.png">
 
+### Data Ingestion and Transformation from the Bronze to the Silver Layer

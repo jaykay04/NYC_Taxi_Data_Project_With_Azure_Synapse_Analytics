@@ -6,7 +6,7 @@ Azure Synapse Analytics is a limitless analytics service that brings together da
 It is a single window where you can do data ingestion, transformations and visulaization. It also provides storage as well as developmemnt, monitoring, managememnt and security capabilities.
 
 ## Project Requirements
-The requirements for the execution of this project will be broken down into 5 different segements with each segment hahving its own unique statement problems.
+The requirements for the execution of this project will be broken down into 5 different segements with each segment having its own unique statement problems.
 #### 1. Data Discovery Requiremetns
 * We should be able to explore the raw data set to ensure data quality and integrity.
 * Data Analysts should be able to to also explore the data, which means schema on data needs to be applied. This will enhance understanding of the dataset and extract busineess value from them.
@@ -77,7 +77,7 @@ To achieve this, we created *EXTERNAL TABLES* and *VIEWS* on top of the files in
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/external_table1.png">
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/external_table2.png">
 
-## Views created in the bronze layer
+#### Views created in the bronze layer
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/views1.png">
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/views2.png">
 

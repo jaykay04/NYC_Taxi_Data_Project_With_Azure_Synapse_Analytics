@@ -97,4 +97,4 @@ The Stored Procedures is then executed dynamically to give us partitioned data i
 After we have achieved the goal of writing the data into partitions, we then created a view on top of the data in the silver layer.
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/data_trip_green_view.png">
 
-Note that the use of *STORED PROCEDURES* here to write the data into partitions is not the most effective approach. Spark Pool is the best approach to impelement this as shown below.
+Note that the use of *STORED PROCEDURES* here to write the data into partitions is not the most effective approach.  Spark Pool is the best approach to impelement this as shown below.

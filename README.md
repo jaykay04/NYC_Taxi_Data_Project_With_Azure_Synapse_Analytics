@@ -53,7 +53,9 @@ The requirements for the execution of this project will be broken down into 5 di
 Azure Serverless SQL Pool is serverless distributed query engine that can be used to query data over the the data lake using T-SQL.
 There is not infrastructure tp provision and clusters to administer.
 
-As regards the project requirements, the first task is to use serverless SQL Pool to perform data discovery and exploration which includes but not limited to the following;
+As regards the project requirements, the first task is to use serverless SQL Pool to perform data discovery and exploration and this can be done using the *OPENROWSET* function in serverless sql pool.
+The *OPENROWSET* function allows us to be able to query the files directly from the storage as if it was a table.
+The following data discovery and exploration was performed a shown below using the *OPENROWSET* function.
 * checking for duplicates
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/check_duplicates.png">
 * volume of data and data quality checks by checking for missing values, max, min, avg etc
@@ -61,3 +63,4 @@ As regards the project requirements, the first task is to use serverless SQL Poo
 * perform joins on keys and also simple transformations to get business value from data
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/join_datasets.png">
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/simple_tranformation.png">
+

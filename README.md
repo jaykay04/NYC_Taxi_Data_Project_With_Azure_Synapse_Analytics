@@ -100,7 +100,7 @@ After we have achieved the goal of writing the data into partitions, we then cre
 Note that the use of *STORED PROCEDURES* here to write the data into partitions is not the most effective approach.  Spark Pool is the best approach to impelement this as shown below.
 
 ### Transform data from Silver layer into gold/reporting layer to meet business requirements
-We have successfully moved data from the raw/bronze layer to the silver layer and also we created external tables and views for easy access for data analysts and scientists. 
+We have successfully moved data from the raw/bronze layer to the silver layer and also created external tables and views for easy access for data analysts and scientists. 
 The next stage of the project involves transforming and aggregating the data into the gold/reporting layer to meet the business requirements.
 We have some couple of business requirements which are summarized below;
 #### 1. We want to be able to run campaigns to encourage credit card payments
@@ -118,3 +118,12 @@ This can be achieved by knowing;
 * Demand based on day of week/weekend
 * Demand based on trip type (i.e Street hail/Dispatch)
 * Trip distance, trip durations, total fare amount etc per day/borough
+
+For the first business requirement, we joined four datasets together i.e the trip_data, taxi_zone, payment_type and calendar data to achieve the business and transformation logic needed to meet the requirements.
+Joining these datasets to achieve the aggregation required was simple because we already created external tables and views on top of all these data in the silver layer which made it straight forward to just write a select statement to join the datasets and aggregate it by the group by clause as shown below.
+<img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/agg_gold_card_trip.png">
+We then write the aggregated data to the gold/reporting layer of the storage account using *STORED PROCEDURE* so that it can be written in each partitions for query optimization.
+<img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/gold_sp.png">
+
+Now that we have the aggregated data in the gold/reporting layer of our storage, we have to make it accessible for Data/BI Analysts so they can connect their various reporting tool conveniently, thus, we created a View on top of the aggregated data in the gold/reporting layer.
+<img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/gold_view.png">

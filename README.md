@@ -121,7 +121,7 @@ This can be achieved by knowing;
 * Trip distance, trip durations, total fare amount etc per day/borough
 
 To satisfy these requirements, we joined five datasets together i.e the trip_data, taxi_zone, payment_type, trip_type and calendar data to achieve the aggregation and transformation logic needed to meet the requirements.
-Joining these datasets to achieve the aggregation required was simple because we already created external tables and views on top of all these data in the silver layer which made it straight forward to just write *SELECT* statement to join the datasets and aggregate it by the *GROUP BY* clause then create a *STORED PROCEDURE* so that we can execute it dynamically.
+Joining these datasets to achieve the aggregation required was simple because we already created external tables and views on top of all these data in the silver layer which made it straight forward to just write *SELECT* statement to join the datasets and aggregate it by the *GROUP BY* clause inside a *CETAS* statement, then create a *STORED PROCEDURE* so that we can execute it dynamically.
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/sp_gold2.png">
 The *STORED PROCEDURE*  was now executed using the *EXEC* command
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/exec_sp_gold2.png">

@@ -3,13 +3,13 @@ This Project is about building scalable and resilient data pipeline for reportin
 
 ## What is Azure Synapse Analytics
 Azure Synapse Analytics is a limitless analytics service that brings together data integration, enterprise datawarehousing and big data analytics.
-It is a single window where you can do data ingestion, transformations and visulaization. It also provides storage as well as developmemnt, monitoring, managememnt and security capabilities.
+It is a single window where you can do data ingestion, transformations and visualization. It also provides storage as well as developmemnt, monitoring, managememnt and security capabilities.
 
 ## Project Requirements
 The requirements for the execution of this project will be broken down into 5 different segements with each segment having its own unique statement problems.
 #### 1. Data Discovery Requiremetns
 * We should be able to explore the raw data set to ensure data quality and integrity.
-* Data Analysts should be able to to also explore the data, which means schema on data needs to be applied. This will enhance understanding of the dataset and extract busineess value from them.
+* Data Analysts should be able to also explore the data, which means schema on data needs to be applied. This will enhance understanding of the dataset and extract busineess value from them.
 * Data Analyst should be able to explore the data and query them using T-SQL.
 #### 2. Data Ingestion Requirements
 * Ingested data should be stored in columnar file format like parquet for better performance with analytical queries.
@@ -28,10 +28,10 @@ The requirements for the execution of this project will be broken down into 5 di
 * The Pipeline built should be scheduled to run at regualar intervals
 * Ability to monitor the status of pipeline excution.
 * We should be able to rerun failed pipelines and set up alerts on failures.
-## Full Solution Architecture of an Azure Synapse Analytics Workspace
+## Full Solution Architecture of this Azure Synapse Analytics Project
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/Overall%20Solution%20Architecture.png">
 
-## Azure Services used for these project
+## Azure Services used for this project
 *  Azure DataLake Storage Gen2
 *  Azure Synpase Workspace
 *  Serverless SQL Pool
@@ -50,14 +50,14 @@ The requirements for the execution of this project will be broken down into 5 di
 ## Serverless SQL Implementation of the Project
 ### Solution Architecture Serverless SQL Pool
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/Slution%20Architecture-Serverless%20SQL%20Pool.png">
-Azure Serverless SQL Pool is a serverless distributed query engine that can be used to query data over the the data lake using T-SQL.
+Azure Serverless SQL Pool is a serverless distributed query engine that can be used to query data over the data lake using T-SQL.
 There is no infrastructure to provision and clusters to administer.
 
 ### Data Discovery in the raw/bronze layer
 As regards the project requirements, the first task is to use serverless SQL Pool to perform data discovery and exploration and this can be done using the *OPENROWSET* function in serverless sql pool.
 
-The *OPENROWSET* function allows us to be able to query the files directly from the storage as if it was a table.
-The following data discovery and exploration was performed a shown below using the *OPENROWSET* function.
+The *OPENROWSET* function allows us to query the files directly from the storage as if it was a table.
+The following data discovery and exploration was performed using the *OPENROWSET* function as shown below;
 
 * checking for duplicates
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/check_duplicates.png">
@@ -69,7 +69,7 @@ The following data discovery and exploration was performed a shown below using t
 
 The challenges faced with the *OPENROWSET* functions include the following;
 * We have to specify the storage account, file details and also file formats anytime we use the *OPENROWSET* function.
-* The Columns names and data types has to be defined each time we query the data.
+* The Columns names and data types has to be defined each time we query the data for cost optimization.
 * There is lots of code repetition
 * We can't query or connect the data using BI tools for reports 
 Therefore, we want our data consumers which are the Analysts and Scientists to be able to access the files as though it was a Table or View which give them the ability to also connect using their BI tools to draw insights without having to worry about the location and file formats specified in the *OPENROWSET* function.
@@ -84,12 +84,13 @@ To achieve this, we created *EXTERNAL TABLES* and *VIEWS* on top of the files in
 
 ### Data Ingestion and Transformation from the Bronze to the Silver Layer
 Now that external tables and views has been created in the bronze layer, the next step is to ingest the data from the bronze layer to the silver layer while also converting the CSV and JSON files into parquet so that analytical queries can run faster.
-The approach used to implement this is the *CETAS* (Create External Table As Select) as shown in below
+The approach used to implement this is the *CETAS* (Create External Table As Select).
+What the *CETAS* does basically is to write the data to storage in the format you specify (we converted to parquet here) while also creating an External table at the same time as shown below;
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/cetas1.png">
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/cetas2.png">
 
 One of the Limitation of the *CETAS* statement is that we can't write data directly into partitions.Data is only written into the one folder that was specified.
-Therefor, we implemented the use of *STORED PROCEDURES* to create seperate tables for each partition so that we can force each of the tables to be written in a seperate folder in the container as shown below.
+Therefore, we implemented the use of *STORED PROCEDURES* to create seperate tables for each partition so that we can force each of the tables to be written in a seperate folders in the container as shown below.
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/sp1.png">
 The Stored Procedures is then executed dynamically to give us partitioned data in the container.
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/exec_sp.png">
@@ -107,22 +108,22 @@ We have some couple of business requirements which are summarized below;
 This can be achieved by
 * Tracking the number of trips making use of both card and cash payments
 * Knowing the payment behaviour during days of the week and also weekend
-* Monitoring the payment behaviour between borouhs
+* Monitoring the payment behaviour between boroughs
 We also have some couple of non functional requirements which includes;
 * Reporting data to be pre-aggregated for better performance
 * Pre-aggregate data for each year/month partition in isolation
 * Able to read data efficiently for specific months from aggregated data
-#### 2. We want ti identify the demands for taxis
+#### 2. We want to identify the demands for taxis
 This can be achieved by knowing;
 * Demands based on borough
 * Demand based on day of week/weekend
 * Demand based on trip type (i.e Street hail/Dispatch)
 * Trip distance, trip durations, total fare amount etc per day/borough
 
-For the first business requirement, we joined four datasets together i.e the trip_data, taxi_zone, payment_type and calendar data to achieve the business and transformation logic needed to meet the requirements.
-Joining these datasets to achieve the aggregation required was simple because we already created external tables and views on top of all these data in the silver layer which made it straight forward to just write a select statement to join the datasets and aggregate it by the group by clause as shown below.
+For the first business requirement, we joined four datasets together i.e the trip_data, taxi_zone, payment_type and calendar data to achieve the aggregation and transformation logic needed to meet the requirements.
+Joining these datasets to achieve the aggregation required was simple because we already created external tables and views on top of all these data in the silver layer which made it straight forward to just write a *SELECT* statement to join the datasets and aggregate it by the *GROUP BY* clause as shown below.
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/agg_gold_card_trip.png">
-We then write the aggregated data to the gold/reporting layer of the storage account using *STORED PROCEDURE* so that it can be written in each partitions for query optimization.
+We then write the aggregated data to the gold/reporting layer of the storage account using *STORED PROCEDURES* so that it can be written into partitions for query optimization.
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/gold_sp.png">
 
 Now that we have the aggregated data in the gold/reporting layer of our storage, we have to make it accessible for Data/BI Analysts so they can connect their various reporting tool conveniently, thus, we created a View on top of the aggregated data in the gold/reporting layer.

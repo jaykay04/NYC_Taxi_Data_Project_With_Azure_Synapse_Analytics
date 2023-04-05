@@ -142,5 +142,12 @@ A *ForEach* ativity was then used to iterate over the array which invoked a *del
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/pl_create_silver_tables.png">
 We also need to create a pipeline to ingest and transform the trip data green dataset because the file was written in partitions by year and month.
 The first step was to use a *script activity* to get the disctinct year and month followed by a *ForEach activity* to iterate over each year and month.
-Inside the *ForEach Activity*, we then call a *delete activity* and a *Stored Procedure activity* to create the file in partitions inside inside the silver layer of the storage. This was followed by another *script activity* to create a view of the data in the silver layer.
+Inside the *ForEach Activity*, we then call a *delete activity* and a *Stored Procedure activity* to create the file in partitions inside inside the silver layer of the storage. This was followed by another *script activity* to create a view of the data in the silver schema.
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/pl_create_silver_trip_data_and_views.png">
+
+We followed the same approach to create the aggregated trip data in partitions inside the gold layer storage together with a view of the data in the gold schema as shown below
+<img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/pl_create_gold_trip_data_and_views.png">
+
+Now, we have three pipelines, we need to create pipeline dependencies which will execute the three pipelines. This was done by creating a master pipeline and calling the *Execute Pipeline activity* which will run the Silver Tables Pipeline and the Silver Trip data green in parallel while the Gold trip data green pipeline will be dependent on the successful completion of the other pipelines before being executed. 
+A schedule Trigger was then attached to the master pipeline to automate the whole process as shown below;
+<img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/pl_master_pipeline.png">

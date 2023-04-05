@@ -140,7 +140,7 @@ So, we created a single parameterized pipeline to dynamically ingest and transfo
 This was done by creating a pipeline variable which takes the names of all the six files and the folder paths to be processed in an array. We also created Stored Procedures for the CETAS statements that created the files.
 A *ForEach* ativity was then used to iterate over the array which invoked a *delete activity* and *stored procedure activity* for each iteration.
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/pl_create_silver_tables.png">
-We then also need to create a pipeline to ingest and transform the trip data green dataset because the file was written in partitions by year and month.
+We also need to create a pipeline to ingest and transform the trip data green dataset because the file was written in partitions by year and month.
 The first step was to use a *script activity* to get the disctinct year and month followed by a *ForEach activity* to iterate over each year and month.
 Inside the *ForEach Activity*, we then call a *delete activity* and a *Stored Procedure activity* to create the file in partitions inside inside the silver layer of the storage. This was followed another *script activity* to create a view of the data in the silver layer.
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/pl_create_silver_trip_data_and_views.png">

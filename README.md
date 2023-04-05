@@ -131,7 +131,8 @@ Now that we have the aggregated data in the gold/reporting layer of our storage,
 
 ### Pipeline Scheduling and Orchestration using Azure Synapse Pipelines
 After all the scripts required to process the data from the bronze to silver and to the gold layer has been developed, we need to create pipelines to schedule these scripts so that they are regulated at regular interval while being able to monitor their executions and alerted fo errors.
-The Tool or Service used basically for this purpose is the * Azure Synapse Pipeline*.
+The Tool or Service used basically for this purpose is the *Azure Synapse Pipeline*. 
+
 *Azure Synapse Pipeline* is a fully managed serverless data integration and orchestration service made available within the Azure Synapse Studio.
 In this Project, we worked with seven different datasets, while only one of them was partitioned, the trip data green dataset.
 So, we created a single parameterized pipeline to dynamically ingest and transform the the other six files without partitions so we don't have too many pipelines to manage.

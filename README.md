@@ -20,14 +20,14 @@ The requirements for the execution of this project will be broken down into 5 di
 * Join the key data required for reporting to create a new table so that we can produce BI reports from them.
 * This transformed data must be easily available for Data Analysts using T-SQL and reporting using BI tools.
 * Transformed data should be stored in columnar format such as parquet.
-#### 4. Reporting Requirements
-* Create BI reports to identify demands during days of the week including weekends  as well as in different locations.
-* This report should also be able to make data driven decisions as regards campaigns aimed at encouraging credit card payments as opposed cash payments.
-* Build capability for Operational reporting on the data from IOT devices in the taxis. This should be a Near Real time Analytics.
-#### 5. Scheduling Requirments
+#### 4. Scheduling Requirments
 * The Pipeline built should be scheduled to run at regualar intervals
 * Ability to monitor the status of pipeline excution.
 * We should be able to rerun failed pipelines and set up alerts on failures.
+#### 5. Reporting Requirements
+* Create BI reports to identify demands during days of the week including weekends  as well as in different locations.
+* This report should also be able to make data driven decisions as regards campaigns aimed at encouraging credit card payments as opposed cash payments.
+* Build capability for Operational reporting on the data from IOT devices in the taxis. This should be a Near Real time Analytics.
 ## Full Solution Architecture of this Azure Synapse Analytics Project
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/Overall%20Solution%20Architecture.png">
 
@@ -128,3 +128,17 @@ The *STORED PROCEDURE*  was now executed using the *EXEC* command
 
 Now that we have the aggregated data in the gold/reporting layer of our storage, we have to make it accessible for Data/BI Analysts so they can connect their various reporting tool conveniently, thus, we created a View on top of the aggregated data in the gold/reporting layer.
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/view_gold2.png">
+
+### Pipeline Scheduling and Orchestration using Azure Synapse Pipelines
+After all the scripts required to process the data from the bronze to silver and to the gold layer has been developed, we need to create pipelines to schedule these scripts so that they are regulated at regular interval while being able to monitor their executions and alerted fo errors.
+The Tool or Service used basically for this purpose is the * Azure Synapse Pipeline*.
+*Azure Synapse Pipeline* is a fully managed serverless data integration and orchestration service made available within the Azure Synapse Studio.
+In this Project, we worked with seven different datasets, while only one of them was partitioned, the trip data green dataset.
+So, we created a single parameterized pipeline to dynamically ingest and transform the the other six files without partitions so we don't have too many pipelines to manage.
+This was done by creating a pipeline variable which takes the names of all the six files and the folder paths to be processed in an array. We also created Stored Procedures for the CETAS statements that created the files.
+A *ForEach* ativity was then used to iterate over the array which invoked a *delete activity* and *stored procedure activity* for each iteration.
+<img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/pl_create_silver_tables.png">
+We then also need to create a pipeline to ingest and transform the trip data green dataset because the file was written in partitions by year and month.
+The first step was to use a *script activity* to get the disctinct year and month followed by a *ForEach activity* to iterate over each year and month.
+Inside the *ForEach Activity*, we then call a *delete activity* and a *Stored Procedure activity* to create the file in partitions inside inside the silver layer of the storage. This was followed another *script activity* to create a view of the data in the silver layer.
+<img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/pl_create_silver_trip_data_and_views.png">

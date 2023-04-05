@@ -135,7 +135,7 @@ The Tool or Service used basically for this purpose is the *Azure Synapse Pipeli
 
 *Azure Synapse Pipeline* is a fully managed serverless data integration and orchestration service made available within the Azure Synapse Studio.
 In this Project, we worked with seven different datasets, while only one of them was partitioned, the trip data green dataset.
-So, we created a single parameterized pipeline to dynamically ingest and transform the the other six files without partitions so we don't have too many pipelines to manage.
+So, we created a single parameterized pipeline to dynamically ingest and transform the other six files without partitions so we don't have too many pipelines to manage. 
 This was done by creating a pipeline variable which takes the names of all the six files and the folder paths to be processed in an array. We also created Stored Procedures for the CETAS statements that created the files.
 A *ForEach* ativity was then used to iterate over the array which invoked a *delete activity* and *stored procedure activity* for each iteration.
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/pl_create_silver_tables.png">

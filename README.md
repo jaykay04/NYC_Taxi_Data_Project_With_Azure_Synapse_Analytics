@@ -179,6 +179,7 @@ Finally, we then attached the pipeline to the master pipeline as shown in the im
 
 ## Creating Reports from the aggregated data in the gold layer to help make data driven decisions 
 The final requirement of this project is to analyze the data and create reports that can help the company make data driven decisions as regards targeted campaigns and having a full understanding for the demands for taxis on a daily basis and per boroughs.
+
 The first thing to do was to connect our Power BI desktop to the synapse workspace which gives access to all the tables and views that has been created.
 We picked the required tables that meet these business requirements and start creating our reports.
 Two reports was created.

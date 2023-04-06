@@ -174,5 +174,5 @@ The first step to implement this part of the project is to spin up a spark pool 
 After the notebook script has been created, we need to automate the execution of the script by creating a synapse pipeline to automate the execution as shown below;
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/pl_spark1.png">
 
-Finally, we the attached the pipeline to the master pipeline.
+Finally, we then attached the pipeline to the master pipeline as shown in the image below;
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/pl_spark2.png">

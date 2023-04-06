@@ -182,6 +182,7 @@ The final requirement of this project is to analyze the data and create reports 
 
 The first thing to do was to connect our Power BI desktop to the synapse workspace which gives access to all the tables and views that has been created.
 We picked the required tables that meet these business requirements and start creating our reports.
+
 Two reports was created.
 The first was aimed at being able to target the right campaigns to encourage Credit card payments over Cash payments as shown below;
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/report1.png">

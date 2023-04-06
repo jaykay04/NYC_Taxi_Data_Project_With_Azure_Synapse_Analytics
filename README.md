@@ -201,3 +201,8 @@ From the analysis above, we could deduce the following;
 * Manhattan has has the most demands for taxis followed by Queens and Brooklyn while the other boroughs has a very low demand for taxis compared to theses boroughs.
 * We could also see that we have more demands for Street-hail trip type compared to the dispatch.
 
+
+### Follow Me
+* Linkedin: https://www.linkedin.com/in/joshua-gbegudu-6a7a59a9/
+* Github: github.com/jaykay04
+* Instagram: @Official_jaykay04

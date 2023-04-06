@@ -26,7 +26,7 @@ The requirements for the execution of this project will be broken down into 5 di
 * We should be able to rerun failed pipelines and set up alerts on failures.
 #### 5. Reporting Requirements
 * Create BI reports to identify demands during days of the week including weekends  as well as in different locations.
-* This report should also be able to make data driven decisions as regards campaigns aimed at encouraging credit card payments as opposed cash payments.
+* This report should also aid in making data driven decisions as regards campaigns aimed at encouraging credit card payments as opposed cash payments.
 * Build capability for Operational reporting on the data from IOT devices in the taxis. This should be a Near Real time Analytics.
 ## Full Solution Architecture of this Azure Synapse Analytics Project
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/Overall%20Solution%20Architecture.png">
@@ -176,3 +176,26 @@ After the notebook script has been created, we need to automate the execution of
 
 Finally, we then attached the pipeline to the master pipeline as shown in the image below;
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/pl_spark2.png">
+
+## Creating Reports from the aggregated data in the gold layer to help make data driven decisions 
+The final requirement of this project is to analyze the data and create reports that can help the company make data driven decisions as regards targeted campaigns and having a full understanding for the demands for taxis on a daily basis and per boroughs.
+The first thing to do was to connect our Power BI desktop to the synapse workspace which gives access to all the tables and views that has been created.
+We picked the required tables that meet these business requirements and start creating our reports.
+Two reports was created.
+The first was aimed at being able to target the right campaigns to encourage Credit card payments over Cash payments as shown below;
+<img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/report1.png">
+
+From the report above, we were able to deduce the following;
+* Track the behaviour of Card and Cash payments over time from Jan 2020 to July 2021 using a line chart.
+* We could observe that  there is a huge variation between card and cash payment from monday to thursday but it reduced on fridays, saturdays and sundays. This means that cash mode of payment increased during weekends. Therefore, we could target our campaigns for these days to yield maximum result.
+* We could also see that for the boroughs, Manhattan and Brooklyn has more card payments than cash payments but other boroughs are closely matched except for Queens who has more cash payments than card payments. Therefore, we need to target our campaigns to the other boroughs that are closely matched while being more aggressive with our campaigns in Queens to achieve an optimal result.
+
+The second report created was aimed at understanding the demands for taxis on a daily basis and per borough. 
+We also want to understand the demands bases on trip type i.e Dispatch Vs Street-hail as shown below;
+<img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/report2.png">
+
+From the analysis above, we could deduce the following;
+* There is an increasing demand for taxis especially on thursdays and fridays with fridays being the highest.
+* Manhattan has has the most demands for taxis followed by Queens and Brooklyn while the other boroughs has a very low demand for taxis compared to theses boroughs.
+* We could also see that we have more demands for Street-hail trip type compared to the dispatch.
+

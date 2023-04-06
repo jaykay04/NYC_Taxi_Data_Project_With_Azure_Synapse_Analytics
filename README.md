@@ -98,7 +98,7 @@ The Stored Procedures is then executed dynamically to give us partitioned data i
 After we have achieved the goal of writing the data into partitions, we then created a view on top of the data in the silver layer.
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/data_trip_green_view.png">
 
-Note that the use of *STORED PROCEDURES* here to write the data into partitions is not the most effective approach.  Spark Pool is the best approach to impelement this as shown below.
+Note that the use of *STORED PROCEDURES* here to write the data into partitions is not the most effective approach.  Spark Pool is the best approach to impelement this and it will be demonstrated in the later section of this project.
 
 ### Transform data from Silver layer into gold/reporting layer to meet business requirements
 We have successfully moved data from the raw/bronze layer to the silver layer and also created external tables and views for easy access for data analysts and scientists. 
@@ -151,3 +151,20 @@ We followed the same approach to create the aggregated trip data in partitions i
 Now, we have three pipelines, we need to create pipeline dependencies which will execute the three pipelines. This was done by creating a master pipeline and calling the *Execute Pipeline activity* which will run the Silver Tables Pipeline and the Silver Trip data green in parallel while the Gold trip data green pipeline will be dependent on the successful completion of the other pipelines before being executed. 
 A schedule Trigger was then attached to the master pipeline to automate the whole process as shown below;
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/pl_master_pipeline.png">
+
+### Spark Pool Implementation of the Transformation Logic of the Trip Data Green from the Silver Layer to the Gold/Reporting Layer
+As stated earlier, writing partitioned data from source to destination using serverless sql pool is not the most efficient and effective approach, which brings us to Azure Synapse Spark Pool.
+
+We want to demontrate how we can use the spark pool compute engine to easily write data in partitions into storage while also showing the seamless integration between *Spark Pool* and *Serverless Sql Pool*.
+
+*Azure Synapse Spark Pool* is a managed Apache Spark compute engine that allows us to perform big data analytics and machine learning in the Synapse Studio. It is Optimized for big data preparation and transformation.
+
+You can use the *Spark Pool* to extract transforom and write data into storage while also creating a Spark Table in the Lake Database at the same time. 
+Serverless SQL Pool can then read this data created in the Spark Table due to the seamless integration between the two services.
+#### Spark and Serverless SQL Pool Architecture
+<img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/spark_serveless1.png">
+The Seamless integration between Spark and Serverless SQL Pool is shown below
+<img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/spark_serverless2.png">
+
+
+

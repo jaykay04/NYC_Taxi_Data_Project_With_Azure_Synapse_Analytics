@@ -159,7 +159,7 @@ We want to demontrate how we can use the spark pool compute engine to easily wri
 
 *Azure Synapse Spark Pool* is a managed Apache Spark compute engine that allows us to perform big data analytics and machine learning in the Synapse Studio. It is Optimized for big data preparation and transformation.
 
-You can use the *Spark Pool* to extract transforom and write data into storage while also creating a Spark Table in the Lake Database at the same time. 
+You can use the *Spark Pool* to Extract, Transform and Load data into storage while also creating a Spark Table in the Lake Database at the same time. 
 Serverless SQL Pool can then read this data created in the Spark Table due to the seamless integration between the two services.
 #### Spark and Serverless SQL Pool Architecture
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/spark_serveless1.png">

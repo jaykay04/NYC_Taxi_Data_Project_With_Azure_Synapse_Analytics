@@ -166,5 +166,8 @@ Serverless SQL Pool can then read this data created in the Spark Table due to th
 The Seamless integration between Spark and Serverless SQL Pool is shown below
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/spark_serverless2.png">
 
+The first step to implement this part of the project is to spin up a spark pool and specify the number of nodes and create a notebook to write our transformation script as shown below;
+<img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/spark1.png">
 
+<img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/spark2.png">
 

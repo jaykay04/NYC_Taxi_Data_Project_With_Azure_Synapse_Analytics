@@ -37,8 +37,6 @@ The requirements for the execution of this project will be broken down into 5 di
 *  Serverless SQL Pool
 *  Dedicated SQL Pool
 *  Spark Pool
-*  Synapse Link for Cosmos DB
-*  Cosmos DB
 *  Synapse Pipelines
 *  Power BI
 *  Azure Data Explorer
@@ -200,6 +198,8 @@ From the analysis above, we could deduce the following;
 * There is an increasing demand for taxis especially on thursdays and fridays with fridays being the highest.
 * Manhattan has has the most demands for taxis followed by Queens and Brooklyn while the other boroughs has a very low demand for taxis compared to theses boroughs.
 * We could also see that we have more demands for Street-hail trip type compared to the dispatch.
+
+In Conclusion, we could see that Azure Synapse Analytics is a power tool for Big Data Analytics.
 
 
 ### Follow Me

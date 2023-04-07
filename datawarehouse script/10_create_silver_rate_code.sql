@@ -1,0 +1,18 @@
+USE nyc_taxi_ldw
+GO
+
+IF OBJECT_ID('silver.rate_code') IS NOT NULL
+    DROP EXTERNAL TABLE silver.rate_code
+
+CREATE EXTERNAL TABLE silver.rate_code
+    WITH(
+        LOCATION = 'silver/rate_code',
+        DATA_SOURCE = nyc_taxi_src,
+        FILE_FORMAT = parquet_file_format
+    )
+AS
+SELECT * 
+    FROM bronze.vw_rate_code
+GO
+
+SELECT * FROM silver.rate_code;

@@ -45,7 +45,7 @@ The requirements for the execution of this project will be broken down into 5 di
 ## Overview of the Datasets used and their formats
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/Files%20Overview.png">
 
-## Serverless SQL Implementation of the Project
+## Serverless SQL Pool Implementation of the Project
 ### Solution Architecture Serverless SQL Pool
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/Slution%20Architecture-Serverless%20SQL%20Pool.png">
 Azure Serverless SQL Pool is a serverless distributed query engine that can be used to query data over the data lake using T-SQL.
@@ -199,8 +199,19 @@ From the analysis above, we could deduce the following;
 * Manhattan has has the most demands for taxis followed by Queens and Brooklyn while the other boroughs has a very low demand for taxis compared to theses boroughs.
 * We could also see that we have more demands for Street-hail trip type compared to the dispatch.
 
-In Conclusion, we could see that Azure Synapse Analytics is a power tool for Big Data Analytics.
+## Dedicated SQL Pool as a Serving/Staging Layer
+We could see from our implementations above that Azure Serverless SQL Pool is a very powerful tool for Data Exploration and also BI Reporting while the Spark pool is super great for Big Data transformations and analytics, but their draw back is that they do not provide storage.
 
+We were able to connect to Serverless SQL pool from our BI tools via the creation of External tables or Views which are built on top of the files in the data lake storage, same for the Spark pools, the spark tables created can only be accessed via Serverless SQL pool also.
+
+Therefore, we should be able to make the data available in some sort of physical tables in a datawarehouse. That is where *Dedicated SQL Pool* comes into play.
+
+*Azure Dedicated SQL Pool* (Formerly known has Azure SQL Datawarehouse) is a distributed query engine that can be used to perform high performance Big Data Analytics using T-SQL.
+
+It offers a storage solution where data can be stored in columnar format for query optimization by BI team. It is a datawarehouse that utilizes the Massively Parallel Processing (MPP) architecture.
+
+### Solution Architecture of Dedicated SQL Pool Implementation
+<img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/dedicated%20sql%20pool%20architecture.png">
 
 ### Follow Me
 * Linkedin: https://www.linkedin.com/in/joshua-gbegudu-6a7a59a9/

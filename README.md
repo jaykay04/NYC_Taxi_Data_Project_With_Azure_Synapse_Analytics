@@ -217,14 +217,22 @@ We can easily perform data exploration and discovery using the Serverless SQL Po
 
 There are two methods we can use to make the data available in our datawarehouse (dedicated sql pool).
 
-The First approach is to create an external tableon the file using Dedicated SQL Pool. When this is done, we are basically reading the data from the files in data lake using polybase which utilizes the power of MPP architecture.
+The First approach is to create an external table on the file using Dedicated SQL Pool. When this is done, we are basically reading the data from the files in data lake using polybase which utilizes the power of MPP architecture.
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/external_table_dedicated_sql_pool.png">
 
 After creating the external table, we can then write a CETAS statement to create an internal table and copy the data from the external table into it simultaneously as shown below
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/internal_table_dedicated_sql_pool.png">.
 
-The second approach is using the copy command which is much more easy to use and recommedned by microsoft as shown below;
-<img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/copy%20to%20table%20dedicated%20sql%20pool.png">
+The second approach is using the copy command which is much more easy to use and recommended by microsoft as shown below;
+<img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/copy%20to%20table%20dedicated%20sql%20pool.png">.
+
+Finally, we can connect our Azure Data Studio for querying the data and Power BI where we can generate our report and publish to the power BI work space.
+<img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/connect%20to%20azure%20data%20studio.png">
+
+<img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/connect%20to%20power%20bi.png">
+
+In conclusion, we could see how powerful Azure Synapse Analytics could be in the Extraction, Transformation and Loading of Big Data so as to be able to derive useful and actionable insights to drive business goals and profitability.
+
 
 ### Follow Me
 * Linkedin: https://www.linkedin.com/in/joshua-gbegudu-6a7a59a9/

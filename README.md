@@ -235,6 +235,6 @@ In conclusion, we could see how powerful Azure Synapse Analytics could be in the
 
 
 ### Follow Me
-* Linkedin: https://www.linkedin.com/in/joshua-gbegudu-6a7a59a9/
+* Linkedin: https://www.linkedin.com/in/joshua-gbegudu/
 * Github: github.com/jaykay04
 * Instagram: @Official_jaykay04

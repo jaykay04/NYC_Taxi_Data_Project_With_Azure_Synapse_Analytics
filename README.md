@@ -128,7 +128,7 @@ Now that we have the aggregated data in the gold/reporting layer of our storage,
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/view_gold2.png">
 
 ### Pipeline Scheduling and Orchestration using Azure Synapse Pipelines
-After all the scripts required to process the data from the bronze to silver and to the gold layer has been developed, we need to create pipelines to schedule these scripts so that they are regulated at regular interval while being able to monitor their executions and alerted fo errors.
+After all the scripts required to process the data from the bronze to silver and to the gold layer has been developed, we need to create pipelines to schedule these scripts so that they are regulated at regular interval while being able to monitor their executions and alerted for errors.
 The Tool or Service used basically for this purpose is the *Azure Synapse Pipeline*. 
 
 *Azure Synapse Pipeline* is a fully managed serverless data integration and orchestration service made available within the Azure Synapse Studio.
@@ -140,7 +140,7 @@ A *ForEach* ativity was then used to iterate over the array which invoked a *del
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/pl_create_silver_tables.png">
 We also need to create a pipeline to ingest and transform the trip data green dataset because the file was written in partitions by year and month.
 The first step was to use a *script activity* to get the disctinct year and month followed by a *ForEach activity* to iterate over each year and month.
-Inside the *ForEach Activity*, we then call a *delete activity* and a *Stored Procedure activity* to create the file in partitions inside inside the silver layer of the storage. This was followed by another *script activity* to create a view of the data in the silver schema.
+Inside the *ForEach Activity*, we then call a *delete activity* and a *Stored Procedure activity* to create the file in partitions inside the silver layer of the storage. This was followed by another *script activity* to create a view of the data in the silver schema.
 <img src="https://github.com/jaykay04/NYC_Taxi_Data_Project_With_Azure_Synapse_Analytics/blob/main/Synapse%20Project%20Images/pl_create_silver_trip_data_and_views.png">
 
 We followed the same approach to create the aggregated trip data in partitions inside the gold layer storage together with a view of the data in the gold schema as shown below
